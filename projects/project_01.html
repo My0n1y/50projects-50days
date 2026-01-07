@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main {
+      display: flex;
+      width: 1200px;
+      height: 735px;
+      margin: 0 auto;
+    }
+
+    .show {
+      height: 100%;
+      margin-right: 20px;
+      flex: 1;
+      transition: flex 0.7s linear;
+
+      p {
+        font-size: 24px;
+        color: white;
+        opacity: 0;
+        left: 20px;
+        bottom: 20px;
+      }
+    }
+
+    .show.active {
+      flex: 5;
+
+      p {
+        opacity: 1;
+        transition: opacity 0.4s linear;
+      }
+    }
+
+    .show:last-child {
+      margin-right: 0px;
+
+    }
+
+    .main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="show active">
+      <img src="../imgs/project_01/QQ20260106-123235.png" alt="图片暂未加载成功">
+      <p>Explore the world</p>
+    </div>
+    <div class="show">
+      <img src="../imgs/project_01/QQ20260106-123332.png" alt="图片暂未加载成功">
+    </div>
+    <div class="show">
+      <img src="../imgs/project_01/QQ20260106-123351.png" alt="图片暂未加载成功">
+    </div>
+    <div class="show">
+      <img src="../imgs/project_01/QQ20260106-123410.png" alt="图片暂未加载成功">
+    </div>
+    <div class="show">
+      <img src="../imgs/project_01/QQ20260106-123433 - 副本.png" alt="图片暂未加载成功">
+    </div>
+  </div>
+</body>
+<script>
+  let mainContainer = document.querySelector('.main')
+  let panels = document.querySelectorAll('.show')
+  mainContainer.addEventListener('click', (e) => {
+    let nearPanel = e.target.closest('.show')
+    if (!nearPanel) return
+    removeActiveAll()
+    nearPanel.classList.add('active')
+  })
+  function removeActiveAll() {
+    panels.forEach((panel) => {
+      panel.classList.remove('active')
+    })
+  }
+
+</script>
+
+</html>
