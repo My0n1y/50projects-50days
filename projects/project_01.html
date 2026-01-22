@@ -18,23 +18,27 @@
       margin-right: 20px;
       flex: 1;
       transition: flex 0.7s linear;
+      position: relative;
+    }
 
-      p {
-        font-size: 24px;
-        color: white;
-        opacity: 0;
-        left: 20px;
-        bottom: 20px;
-      }
+    .show p {
+      position: absolute;
+      font-size: 24px;
+      color: white;
+      opacity: 0;
+      left: 20px;
+      bottom: 20px;
+      color: white;
+      z-index: 10;
     }
 
     .show.active {
       flex: 5;
+    }
 
-      p {
-        opacity: 1;
-        transition: opacity 0.4s linear;
-      }
+    .show.active p {
+      opacity: 1;
+      transition: opacity 0.4s linear;
     }
 
     .show:last-child {
@@ -59,15 +63,19 @@
     </div>
     <div class="show">
       <img src="../imgs/project_01/QQ20260106-123332.png" alt="图片暂未加载成功">
+      <p>Wild Forest</p>
     </div>
     <div class="show">
       <img src="../imgs/project_01/QQ20260106-123351.png" alt="图片暂未加载成功">
+      <p>Sunny beach</p>
     </div>
     <div class="show">
       <img src="../imgs/project_01/QQ20260106-123410.png" alt="图片暂未加载成功">
+      <p>City on winter</p>
     </div>
     <div class="show">
       <img src="../imgs/project_01/QQ20260106-123433 - 副本.png" alt="图片暂未加载成功">
+      <p>Mountains Clouds</p>
     </div>
   </div>
 </body>
