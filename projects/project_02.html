@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btns {
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: skyblue;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 30px;
+      margin: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    .btn:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+
+    .main {
+      height: 80px;
+      width: 360px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .step {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 3px solid gray;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      background-color: white;
+    }
+
+    .step.active {
+      border-color: skyblue;
+    }
+
+    .main::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 100%;
+      background-color: gray;
+      z-index: -1;
+    }
+
+    .progress {
+      background-color: skyblue;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 0%;
+      z-index: -1;
+      transition: 0.4s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main">
+      <div class="progress" id="progress"></div>
+      <div class="step active">1</div>
+      <div class="step">2</div>
+      <div class="step">3</div>
+      <div class="step">4</div>
+    </div>
+    <div class="btns">
+      <button class="btn" id="prev" disabled>Prev</button>
+      <button class="btn" id="next">Next</button>
+    </div>
+  </div>
+  <script>
+    let steps = document.querySelectorAll(".step")
+    let prev = document.getElementById('prev')
+    let next = document.getElementById('next')
+    let progress = document.getElementById('progress')
+    let currentActive = 1
+    next.addEventListener('click', () => {
+      currentActive++
+      if (currentActive > steps.length) {
+        currentActive = steps.length
+      }
+      update()
+    })
+    prev.addEventListener('click', () => {
+      currentActive--
+      if (currentActive < 1) {
+        currentActive = 1
+      }
+      update()
+    })
+
+    function update() {
+      steps.forEach((step, index) => {
+        if (index < currentActive) {
+          step.classList.add('active')
+        } else {
+          step.classList.remove('active')
+        }
+      })
+      const actives = document.querySelectorAll('.active')
+      if (progress) {
+        progress.style.width = (actives.length - 1) / (steps.length - 1) * 100 + '%'
+
+      }
+      if (currentActive === 1) {
+        prev.disabled = true
+      } else if (currentActive === 4) {
+        next.disabled = true
+      } else {
+        prev.disabled = false
+        next.disabled = false
+      }
+    }
+
+  </script>
+</body>
+
+</html>
