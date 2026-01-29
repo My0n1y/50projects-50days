@@ -1,0 +1,44 @@
+{
+  "id": "5119725",
+  "name": "50projects",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "652921",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "5387522",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "eaf2",
+      "unicode_decimal": 60146
+    },
+    {
+      "icon_id": "7335565",
+      "name": "汉堡菜单",
+      "font_class": "hanbaocaidan",
+      "unicode": "eb36",
+      "unicode_decimal": 60214
+    },
+    {
+      "icon_id": "8289038",
+      "name": "信封",
+      "font_class": "xinfeng",
+      "unicode": "e86f",
+      "unicode_decimal": 59503
+    },
+    {
+      "icon_id": "44043598",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    }
+  ]
+}
