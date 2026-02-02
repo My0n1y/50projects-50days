@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .show {
+      display: flex;
+      width: 400px;
+      height: 200px;
+      border: 0;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: skyblue;
+      border-radius: 10px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.6s ease-out;
+    }
+
+    .show:nth-of-type(odd) {
+      transform: translateX(-150%) scale(0.8);
+    }
+
+    .show:nth-of-type(even) {
+      transform: translateX(150%) scale(0.8);
+    }
+
+    .show.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Scroll to see the animation</h1>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <div class="show">
+    <h3>Content</h3>
+  </div>
+  <script>
+    let boxes = document.querySelectorAll('.show')
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active')
+        } else {
+          entry.target.classList.remove('active')
+        }
+      })
+    }, {
+      threshold: 0.1
+    })
+    boxes.forEach(box => {
+      observer.observe(box)
+    })
+  </script>
+</body>
+
+</html>
