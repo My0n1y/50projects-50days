@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .bg {
+      background: url('../imgs/project_05/20200812101806_cjhdu.jpeg') no-repeat center center/cover;
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: calc(100vw + 60px);
+      height: calc(100vh + 60px);
+      z-index: -1;
+      filter: blur(0px);
+    }
+
+    .loading-text {
+      font-size: 50px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <section class="bg"></section>
+  <div class="loading-text">0%</div>
+  <script>
+    const loadText = document.querySelector('.loading-text')
+    const bg = document.querySelector('.bg')
+    let load = 0
+    let time = setInterval(blurring, 30)
+    function blurring() {
+      load++
+      if (load > 99) {
+        clearInterval(time)
+      }
+      loadText.innerText = `${load}%`
+      loadText.style.opacity = scale(load, 0, 100, 1, 0)
+      bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+    }
+    function scale(num, inmin, inmax, outmin, outmax) {
+      return (num - inmin) * (outmax - outmin) / (inmax - inmin) + outmin
+    }
+  </script>
+</body>
+
+</html>
