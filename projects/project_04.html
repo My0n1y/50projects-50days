@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../imgs/font_suoqy8ty5aj/iconfont.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: purple;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      position: relative;
+      height: 50px;
+    }
+
+    .input {
+      background-color: #fff;
+      border: 0;
+      outline: none;
+      font-size: 18px;
+      padding: 15px;
+      height: 50px;
+      width: 50px;
+      transition: width 0.3s ease;
+    }
+
+    .btn {
+      background-color: #fff;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+      font-size: 24px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 50px;
+      width: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .container.active .input {
+      width: 200px;
+      opacity: 1;
+    }
+
+    .container.active .btn {
+      transform: translateX(198px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <input type="text" class="input" placeholder="Search...">
+    <button class="btn">
+      <i class="iconfont icon-search"></i>
+    </button>
+  </div>
+  <script>
+    let btn = document.querySelector('.btn')
+    let input = document.querySelector('.input')
+    let container = document.querySelector('.container')
+    btn.addEventListener('click', () => {
+      container.classList.toggle('active')
+      input.focus()
+    })
+  </script>
+</body>
+
+</html>
