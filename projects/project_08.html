@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      background-color: steelblue;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      height: 500px;
+      background-color: #2a4e6c;
+      border-radius: 10px;
+    }
+
+    .container h1 {
+      margin: 20px 30px;
+      color: white;
+    }
+
+    .container .input {
+      width: 300px;
+      margin: 10px 20px;
+      border: none;
+      border-radius: 2px;
+      border-bottom: 2px solid white;
+      outline: none;
+      background: transparent;
+      padding: 15px 0;
+      transition: border-bottom 0.3s;
+      color: white;
+      font-size: 18px;
+    }
+
+    .container .input:focus {
+      border-bottom: 2px solid skyblue;
+    }
+
+    .container .input::placeholder {
+      color: white;
+      opacity: 0.3;
+    }
+
+    .container .btn {
+      width: 300px;
+      height: 50px;
+      background-color: skyblue;
+      border-radius: 10px;
+      border: none;
+      margin: 20px 0px;
+      font-size: 18px;
+    }
+
+    .container p {
+      color: white;
+    }
+
+    .container a {
+      color: steelblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Please Login</h1>
+    <input type="text" class="input" placeholder="Email">
+    <input type="text" class="input" placeholder="Password">
+    <button class="btn">Login</button>
+    <p>Don't have an account?<a href="#" class="a">Register</a></p>
+  </div>
+  <script>
+
+  </script>
+</body>
+
+</html>
