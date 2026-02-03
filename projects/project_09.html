@@ -29,6 +29,7 @@
       flex-direction: row;
       background-color: rgba(161, 100, 223);
       height: 100vh;
+      flex-wrap: wrap;
     }
 
     .container .btn {
@@ -77,7 +78,6 @@
     </div>
   </div>
   <script>
-    let container = document.querySelector('.container')
     let panels = document.querySelectorAll('.btn')
     panels.forEach((panel) => {
       panel.addEventListener('click', () => {
