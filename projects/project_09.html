@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      background-color: rgba(161, 100, 223);
+      height: 100vh;
+    }
+
+    .container .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 100px;
+      background-color: purple;
+      margin: 40px;
+      border-radius: 10px;
+    }
+
+    .btn p {
+      color: white;
+      font-size: 26px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="btn">
+      <p>applause</p>
+      <audio src="../imgs/project_09/applause.mp3"></audio>
+    </div>
+    <div class="btn">
+      <p>boo</p>
+      <audio src="../imgs/project_09/boo.mp3"></audio>
+    </div>
+    <div class="btn">
+      <p>gasp</p>
+      <audio src="../imgs/project_09/gasp.mp3"></audio>
+    </div>
+    <div class="btn">
+      <p>tada</p>
+      <audio src="../imgs/project_09/tada.mp3"></audio>
+    </div>
+    <div class="btn">
+      <p>victory</p>
+      <audio src="../imgs/project_09/victory.mp3"></audio>
+    </div>
+    <div class="btn">
+      <p>wrong</p>
+      <audio src="../imgs/project_09/wrong.mp3"></audio>
+    </div>
+  </div>
+  <script>
+    let container = document.querySelector('.container')
+    let panels = document.querySelectorAll('.btn')
+    panels.forEach((panel) => {
+      panel.addEventListener('click', () => {
+        stopSongs()
+        const audio = panel.querySelector('audio')
+        if (audio) {
+          audio.play()
+        }
+      })
+    })
+    function stopSongs() {
+      panels.forEach((panel) => {
+        const audio = panel.querySelector('audio')
+        if (audio) {
+          audio.pause()
+          audio.currentTime = 0
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>
