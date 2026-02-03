@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background-color: steelblue;
+      font-family: sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 600px;
+      min-height: 300px;
+      background-color: white;
+      flex-direction: column;
+      border-radius: 10px;
+      padding-bottom: 30px;
+    }
+
+    .container h3 {
+      color: gray;
+      margin: 40px;
+    }
+
+    .container #joke-box {
+      margin: 20px 50px;
+      background-color: white;
+      border: 0;
+      text-align: center;
+      line-height: 1.6;
+      min-height: 60px;
+    }
+
+    .container .change {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 50px;
+      background-color: purple;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      user-select: none;
+    }
+
+    .container .change:active {
+      background-color: rebeccapurple;
+    }
+
+    .container .change p {
+      font-size: 15px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Don't Laugh Challenge</h3>
+    <div id="joke-box">
+      Loading...
+    </div>
+    <div class="change" id="jokeBtn">
+      <p>get another joke</p>
+    </div>
+  </div>
+
+  <script>
+    // 1. 获取 DOM 元素
+    const jokeBox = document.getElementById('joke-box');
+    const jokeBtn = document.getElementById('jokeBtn');
+    const apiUrl = 'https://api.lolimi.cn/API/xiaohua/api';
+    function getJoke() {
+      jokeBox.innerText = 'Loading...';
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.code === "1") {
+            jokeBox.innerText = data.text;
+          } else {
+            jokeBox.innerText = "获取失败，请重试";
+          }
+        })
+        .catch(error => {
+          console.error("请求失败", error);
+          jokeBox.innerText = "网络错误，请检查网络";
+        });
+    }
+
+    jokeBtn.addEventListener('click', getJoke);
+
+    getJoke();
+  </script>
+</body>
+
+</html>
