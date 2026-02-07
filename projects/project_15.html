@@ -5,14 +5,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="../imgs/font_suoqy8ty5aj/iconfont.css">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: 0;
+      min-height: 100vh;
+      background-color: rgba(142, 68, 173);
+    }
+
+    .container {
+      width: 800px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      gap: 50px;
+    }
+
+    .show {
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      flex-direction: column;
+    }
+
+    .show span.icon-niao,
+    .show span.icon-Youtube,
+    .show span.icon-facebook {
+      color: white;
+      font-size: 40px;
+    }
+
+    .show p {
+      font-size: 60px;
+      color: white;
+    }
+
+    .show h3 {
+      color: white;
+    }
   </style>
 </head>
 
 <body>
-
+  <div class="container">
+    <div class="show">
+      <span class="iconfont icon-niao"></span>
+      <p class="Twitter" data-target="12000"></p>
+      <h3>Twitter Followers</h3>
+    </div>
+    <div class="show">
+      <span class="iconfont icon-Youtube"></span>
+      <p class="Youtube" data-target="5000"></p>
+      <h3>YouTube Subscribers</h3>
+    </div>
+    <div class="show">
+      <span class="iconfont icon-facebook"></span>
+      <p class="Facebook" data-target="7500"></p>
+      <h3>Facebook Fans</h3>
+    </div>
+  </div>
   <script>
+    let followers = document.querySelector('.Twitter')
+    let subscribers = document.querySelector('.Youtube')
+    let fans = document.querySelector('.Facebook')
+    function increase(el, num, time, token) {
+      let timer = setInterval(() => {
+        let target = +el.getAttribute('data-target')
+        num += token
+        if (num >= target) {
+          el.innerText = target
+          clearInterval(timer)
+        } else {
+          el.innerText = num
+        }
+      }, time)
+    }
+    increase(followers, 0, 5, 100)
+    increase(subscribers, 0, 5, 50)
+    increase(fans, 0, 5, 75)
 
   </script>
 </body>

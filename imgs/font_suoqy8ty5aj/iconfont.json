@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "4936976",
+      "name": "Youtube",
+      "font_class": "Youtube",
+      "unicode": "e880",
+      "unicode_decimal": 59520
+    },
+    {
+      "icon_id": "15378341",
+      "name": "facebook",
+      "font_class": "facebook",
+      "unicode": "eb8d",
+      "unicode_decimal": 60301
+    },
+    {
+      "icon_id": "22611546",
+      "name": "鸟",
+      "font_class": "niao",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
       "icon_id": "5001125",
       "name": "关闭",
       "font_class": "guanbi1",
