@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../imgs/font_suoqy8ty5aj/iconfont.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container h1 {
+      margin: 50px 100px;
+    }
+
+    .container .show {
+      margin: 20px 50px;
+      border: 1px solid gray;
+      width: 723px;
+      height: 80px;
+      position: relative;
+      border-radius: 10px;
+      padding: 20px 20px;
+      overflow: hidden;
+      transition: height 0.4s ease;
+    }
+
+    .container .show .btn {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      border: 0;
+    }
+
+    .container .show .btn .icon-a-shili-zhankaizuocezhankaijiantou {
+      display: block;
+    }
+
+    .container .show .btn .icon-guanbi1 {
+      display: none;
+    }
+
+    .container .show h3 {
+      margin-bottom: 25px;
+    }
+
+    .container .show p {
+      margin: 20px 0;
+    }
+
+    .container .show.active {
+      height: 150px;
+    }
+
+    .container .show.active .btn .icon-a-shili-zhankaizuocezhankaijiantou {
+      display: none;
+    }
+
+    .container .show.active .btn .icon-guanbi1 {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <div class="show">
+      <h3>Why shouldn't we trust atoms?</h3>
+      <button class="btn">
+        <span class="iconfont icon-a-shili-zhankaizuocezhankaijiantou"></span>
+        <span class=" iconfont icon-guanbi1"></span>
+      </button>
+      <p>They make up everything</p>
+    </div>
+    <div class="show">
+      <h3>What do you call someone with no body and no nose?</h3>
+      <button class="btn">
+        <span class="iconfont icon-a-shili-zhankaizuocezhankaijiantou"></span>
+        <span class=" iconfont icon-guanbi1"></span>
+      </button>
+      <p>Nobody knows</p>
+    </div>
+    <div class="show">
+      <h3>What's the object-oriented way to become wealthy?</h3>
+      <button class="btn">
+        <span class="iconfont icon-a-shili-zhankaizuocezhankaijiantou"></span>
+        <span class=" iconfont icon-guanbi1"></span>
+      </button>
+      <p>Inheritance</p>
+    </div>
+    <div class="show">
+      <h3>How many tickles does it take to tickle an octopus?</h3>
+      <button class="btn">
+        <span class="iconfont icon-a-shili-zhankaizuocezhankaijiantou"></span>
+        <span class=" iconfont icon-guanbi1"></span>
+      </button>
+      <p>Ten-tickles!</p>
+    </div>
+    <div class="show">
+      <h3>What is: 1 + 1?</h3>
+      <button class="btn">
+        <span class="iconfont icon-a-shili-zhankaizuocezhankaijiantou"></span>
+        <span class=" iconfont icon-guanbi1"></span>
+      </button>
+      <p>Depends on who are you asking</p>
+    </div>
+  </div>
+  <script>
+    let panels = document.querySelectorAll('.show')
+    panels.forEach((panel) => {
+      panel.addEventListener('click', () => {
+        panel.classList.toggle('active')
+      })
+    })
+  </script>
+</body>
+
+</html>
