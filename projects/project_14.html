@@ -72,14 +72,24 @@
       height: 2px;
       width: 20px;
       position: absolute;
-      top: 10px;
       left: 5px;
       transition: transform 0.6s linear;
     }
 
+    .line1 {
+      top: 10px;
+    }
+
     .line2 {
-      top: auto;
       bottom: 10px;
+    }
+
+    nav.active .line1 {
+      transform: rotate(45deg) translateY(5px);
+    }
+
+    nav.active .line2 {
+      transform: rotate(-45deg) translateY(-5px);
     }
 
     nav ul li a {
