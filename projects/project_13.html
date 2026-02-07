@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      overflow: hidden;
+      background-color: skyblue;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      width: 550px;
+    }
+
+    .container h3 {
+      margin-bottom: 20px;
+    }
+
+    .container textarea {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .container textarea:focus {
+      outline: none;
+    }
+
+    .container #tags {
+      width: 500px;
+    }
+
+    .tag {
+      background-color: orange;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin: 0 5px 10px 0;
+      font-size: 14px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Enter all of the choices divided by a comma (',').<br>
+      Press enter when you're done</h3>
+    <textarea id="text" placeholder="e.g. Choice 1,Choice 2,Choice 3"></textarea>
+    <div id="tags"></div>
+  </div>
+  <script>
+    let text = document.getElementById('text')
+    let tagsEl = document.getElementById('tags')
+    text.focus()
+    text.addEventListener('keyup', (e) => {
+      createTags(e.target.value)
+      if (e.key === 'Enter') {
+        setTimeout(() => {
+          e.target.value = ''
+        }, 10)
+      }
+    })
+    function createTags(input) {
+      const tags = input.split(',').filter(tag => tag.trim() !== '').map((tag) => tag.trim())
+      tagsEl.innerHTML = ''
+      tags.forEach((tag) => {
+        let tagEl = document.createElement('span')
+        tagEl.classList.add('tag')
+        tagEl.innerText = tag
+        tagsEl.appendChild(tagEl)
+      })
+    }
+  </script>
+</body>
+
+</html>
