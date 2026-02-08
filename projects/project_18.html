@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../imgs/font_suoqy8ty5aj/iconfont.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      min-height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../imgs/project_18/pexels-jimmy-liao-3615017-35398734.jpg);
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      flex-direction: row;
+    }
+
+    .small {
+      width: 1000px;
+      height: 600px;
+    }
+
+    .small img {
+      width: 100%;
+    }
+
+    .turn-left,
+    .turn-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid orange;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+    }
+
+    .turn-left .icon-zuojiantou,
+    .turn-right .icon-youjiantou {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="turn-left">
+    <span class="iconfont icon-zuojiantou"></span>
+  </div>
+  <div class="small">
+    <img src="../imgs/project_18/pexels-jimmy-liao-3615017-35398734.jpg" alt="图片暂时无法显示">
+  </div>
+  <div class="turn-right">
+    <span class="iconfont icon-youjiantou"></span>
+  </div>
+  <script>
+    let photos = [
+      '../imgs/project_18/pexels-jimmy-liao-3615017-35398734.jpg',
+      '../imgs/project_18/pexels-leila-chen-2157146213-35588370.jpg',
+      '../imgs/project_18/pexels-mingchiho-fong-214381620-27299109.jpg'
+    ]
+    let left = document.querySelector('.turn-left')
+    let right = document.querySelector('.turn-right')
+    let smallImg = document.querySelector('.small img')
+    let i = 0
+    function updateView() {
+      smallImg.src = photos[i]
+      document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(${photos[i]})`
+    }
+    left.addEventListener('click', () => {
+      i--
+      if (i < 0) {
+        i = photos.length - 1
+      }
+      updateView()
+    })
+    right.addEventListener('click', () => {
+      i++
+      if (i >= photos.length) {
+        i = 0
+      }
+      updateView()
+    })
+  </script>
+</body>
+
+</html>
