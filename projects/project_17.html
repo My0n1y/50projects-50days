@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      min-height: 100vh;
+      background-color: rgba(43, 37, 75);
+      position: relative;
+    }
+
+    .head {
+      display: flex;
+      height: 80px;
+      justify-content: flex-end;
+      width: 100%;
+      background-color: rgba(55, 59, 105);
+      position: absolute;
+      top: 0;
+    }
+
+    .search {
+      width: 250px;
+      height: 50px;
+      background-color: transparent;
+      border: 2px solid rgba(43, 37, 75);
+      border-radius: 25px;
+      color: gray;
+      font-size: 18px;
+      padding-left: 10px;
+      margin-top: 15px;
+      margin-right: 15px;
+    }
+
+    .search:focus {
+      outline: none;
+      background-color: rgba(43, 37, 75);
+    }
+
+    .container {
+      display: flex;
+      width: 1600px;
+      margin: 110px 20px 20px 20px;
+      flex-wrap: wrap;
+    }
+
+    .show {
+      width: 300px;
+      height: 500px;
+      margin: 10px;
+      background-color: rgba(55, 59, 105);
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .show img {
+      width: 100%;
+      height: 80%;
+      object-fit: cover;
+    }
+
+    .show h3 {
+      color: white;
+      font-size: 18px;
+      margin: 10px;
+    }
+
+    .cores {
+      background-color: rgba(43, 37, 75);
+      width: 60px;
+      height: 30px;
+      color: orange;
+      text-align: center;
+      position: absolute;
+      font-weight: bold;
+      bottom: 50px;
+      left: 220px;
+      border-radius: 5px;
+    }
+
+    .overview {
+      background-color: white;
+      padding: 2rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(101%);
+      transition: transform 0.3s ease-in;
+      max-height: 100%;
+    }
+
+    .overview h3 {
+      margin: 20px 20px 20px 20px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .overview p {
+      margin: 20px;
+    }
+
+    .show:hover .overview {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="head">
+    <input type="text" class="search" placeholder="Search...">
+  </div>
+  <div class="container">
+    <div class="show">
+      <img src="../imgs/project_17/The Wreacking Crew.webp" alt="图片暂时无法查看">
+      <h3 class="movie-title">The Wreacking Crew</h3>
+      <div class="cores">6.833</div>
+      <div class="overview">
+        <h3>overview</h3>
+        <p>Estranged half-brothers Jonny and James reunite after their father's mysterious death. As they search for the
+          truth,
+          buried secrets reveal a conspiracy threatening to tear their family apart.</p>
+      </div>
+    </div>
+    <div class="show">
+      <img src="../imgs/project_17/The HouseMaid.webp" alt="图片暂时无法查看">
+      <h3 class="movie-title">The HouseMaid</h3>
+      <div class="cores">6.509</div>
+      <div class="overview">
+        <h3>overview</h3>
+        <p>Estranged half-brothers Jonny and James reunite after their father's mysterious death. As they search for the
+          truth,
+          buried secrets reveal a conspiracy threatening to tear their family apart.</p>
+      </div>
+    </div>
+    <div class="show">
+      <img src="../imgs/project_17/GreenLand2.webp" alt="图片暂时无法查看">
+      <h3 class="movie-title">GreenLand2</h3>
+      <div class="cores">7.144</div>
+      <div class="overview">
+        <h3>overview</h3>
+        <p>Estranged half-brothers Jonny and James reunite after their father's mysterious death. As they search for the
+          truth,
+          buried secrets reveal a conspiracy threatening to tear their family apart.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    let searchInput = document.querySelector('.search')
+    let cards = document.querySelectorAll('.show')
+    searchInput.addEventListener('input', (e) => {
+      let searchTerm = e.target.value.toLowerCase()
+      cards.forEach((card) => {
+        let title = card.querySelector('.movie-title').innerText.toLowerCase()
+        if (title.includes(searchTerm)) {
+          card.style.display = 'flex'
+        } else {
+          card.style.display = 'none'
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
