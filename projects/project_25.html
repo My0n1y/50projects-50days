@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 80px;
+      padding: 0 10%;
+      background-color: black;
+      z-index: 10;
+      transition: all 0.4s ease;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    nav h1 a {
+      color: white;
+      text-decoration-line: none;
+      transition: color 0.3s linear;
+    }
+
+    nav h1 a:hover {
+      color: red;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a:hover {
+      color: red;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s linear;
+    }
+
+    nav ul li:first-child a {
+      color: red;
+    }
+
+    .container {
+      position: relative;
+      height: calc(100vh - 80px);
+      width: 100%;
+      z-index: 1;
+      overflow: hidden;
+      margin-top: 80px;
+    }
+
+    .container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .container .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .article {
+      width: 80%;
+    }
+
+    .article h2 {
+      margin-top: 20px;
+    }
+
+    .article p {
+      margin-top: 20px;
+      color: gray;
+    }
+
+    nav.active {
+      background-color: white;
+      height: 60px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active a {
+      color: black !important;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h1><a href="https://50projects50days.cn/index.html#/">My Website</a></h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <img src="../imgs/project_07/image.png" alt="暂时无法查看">
+    <div class="message">
+      <h1>Welcome To My Website</h1>
+      <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, consequuntur?</h3>
+    </div>
+  </div>
+  <div class="article">
+    <h2>Content One</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorem voluptates eveniet tempora ut
+      cupiditate
+      magnam, sapiente, hic quo in ipsum iste soluta eaque perferendis nihil recusandae dolore officia aperiam corporis
+      similique. Facilis quos tempore labore totam! Consectetur molestiae iusto ducimus error reiciendis aspernatur
+      dolor,
+      modi dolorem sit architecto, voluptate magni sunt unde est quas? Voluptates a dolorum voluptatum quo perferendis
+      aut
+      sit. Aspernatur libero laboriosam ab eligendi omnis delectus earum labore, placeat officiis sint illum rem
+      voluptas
+      ipsum repellendus iste eius recusandae quae excepturi facere, iure rerum sequi? Illum velit delectus dicta et iste
+      dolorum obcaecati minus odio eligendi!</p>
+    <h2>Content Two</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur provident nostrum possimus inventore nisi
+      laboriosam
+      consequatur modi nulla eos, commodi, omnis distinctio! Maxime distinctio impedit provident, voluptates illo odio
+      nostrum
+      minima beatae similique a sint sapiente voluptatum atque optio illum est! Tenetur tempora doloremque quae iste
+      aperiam
+      hic cumque repellat?</p>
+  </div>
+  <script>
+    const navEl = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        navEl.classList.add('active');
+      } else {
+        navEl.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+</html>
