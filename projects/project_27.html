@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      min-height: 100vh;
+      background-color: rebeccapurple;
+    }
+
+    .btn {
+      width: 150px;
+      height: 60px;
+      background-color: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s linear;
+    }
+
+    .btn p {
+      color: rebeccapurple;
+      font-size: 14px;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    .message-container {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+    }
+
+    .message {
+      background-color: #fff;
+      padding: 15px 30px;
+      margin: 5px;
+      border-radius: 10px;
+      font-family: sans-serif;
+      font-weight: bold;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="btn">
+    <p>Show Notification</p>
+  </div>
+  <div class="message-container"></div>
+  <script>
+    let btnEl = document.querySelector('.btn')
+    let messageContainer = document.querySelector('.message-container')
+    btnEl.addEventListener('click', () => {
+      let messageBox = document.createElement('span')
+      messageBox.classList.add('message')
+      messageBox.innerText = 'message'
+      let randomColor = `hsl(${Math.floor(Math.random() * 360)},70%,60%)`
+      messageBox.style.color = randomColor
+      messageContainer.appendChild(messageBox)
+      setTimeout(() => {
+        messageBox.remove()
+      }, 3000)
+    })
+  </script>
+</body>
+
+</html>
