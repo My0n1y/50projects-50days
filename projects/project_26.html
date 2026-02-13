@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Slider</title>
+  <link rel="stylesheet" href="../imgs/font_suoqy8ty5aj/iconfont.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .left-slide {
+      height: 100%;
+      width: 35%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .left-slide>div {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+    }
+
+    .right-slide {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 35%;
+      width: 65%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .right-slide>div {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .action-buttons button {
+      position: absolute;
+      left: 35%;
+      top: 50%;
+      z-index: 100;
+      border: none;
+      background-color: #fff;
+      padding: 15px;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .action-buttons button:hover {
+      color: #222;
+    }
+
+    .action-buttons .down-button {
+      transform: translateX(-100%);
+      border-radius: 5px 0 0 5px;
+    }
+
+    .action-buttons .up-button {
+      transform: translateY(-100%);
+      border-radius: 0 5px 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider-container">
+    <div class="left-slide">
+      <div style="background-color: #252e33">
+        <h1>Lonely castle</h1>
+        <p>in the wilderness</p>
+      </div>
+      <div style="background-color: #2a86ba">
+        <h1>Bluuue Sky</h1>
+        <p>with it's mountains</p>
+      </div>
+      <div style="background-color: #fd3555">
+        <h1>Nature flower</h1>
+        <p>all in pink</p>
+      </div>
+      <div style="background-color: #ffb866">
+        <h1>Flying eagle</h1>
+        <p>in the sunset</p>
+      </div>
+    </div>
+
+    <div class="right-slide">
+      <div style="background-image: url('../imgs/project_26/Flying\ eagle.jpg')"></div>
+      <div style="background-image: url('../imgs/project_26/Nature\ flower.jpg')"></div>
+      <div style="background-image: url('../imgs/project_26/Bluuue\ sky.jpg')"></div>
+      <div style="background-image: url('../imgs/project_26/Lonely\ castle.jpg')"></div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="down-button">
+        <span class="iconfont icon-xiajiantou"></span>
+      </button>
+      <button class="up-button">
+        <span class="iconfont icon-shangjiantou"></span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let sliderContainer = document.querySelector('.slider-container')
+    let slideLeft = document.querySelector('.left-slide')
+    let slideRight = document.querySelector('.right-slide')
+    let downButton = document.querySelector(".down-button")
+    let upButton = document.querySelector('.up-button')
+    let slidesLength = slideRight.querySelectorAll('div').length
+
+    // 这里保持 activeIndex
+    let activeIndex = 0
+
+    // 初始化：让左侧反向偏移
+    slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`
+
+    upButton.addEventListener('click', () => changeSlide('up'))
+    downButton.addEventListener('click', () => changeSlide('down'))
+
+    const changeSlide = (direction) => {
+      const sliderHeight = sliderContainer.clientHeight
+
+      if (direction === 'up') {
+        activeIndex++
+        if (activeIndex > slidesLength - 1) {
+          activeIndex = 0
+        }
+      } else if (direction === 'down') {
+        activeIndex--
+        if (activeIndex < 0) {
+          activeIndex = slidesLength - 1
+        }
+      }
+
+      // 将函数内的变量名全部改为 activeIndex
+      slideRight.style.transform = `translateY(-${activeIndex * sliderHeight}px)`
+      slideLeft.style.transform = `translateY(${activeIndex * sliderHeight}px)`
+    }
+  </script>
+</body>
+
+</html>
