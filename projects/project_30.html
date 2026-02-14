@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Text Effect</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: darksalmon;
+      /* 官方原版是这种橘粉色，你可以换 */
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .speed-box {
+      position: absolute;
+      bottom: 20px;
+      background: rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+
+    input {
+      width: 50px;
+      padding: 5px;
+      font-size: 18px;
+      background-color: darksalmon;
+      border: none;
+      border-bottom: 2px solid white;
+      text-align: center;
+      color: white;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="text">Starting...</h1>
+
+  <div class="speed-box">
+    <label for="speed">Speed:</label>
+    <input type="number" id="speed" value="1" min="1" max="10" step="1">
+  </div>
+
+  <script>
+    const textEl = document.getElementById('text')
+    const speedEl = document.getElementById('speed')
+
+    const text = 'We Love Programming!'
+
+    let idx = 1
+    let speed = 300 / speedEl.value
+
+    writeText()
+
+    function writeText() {
+      textEl.innerText = text.slice(0, idx)
+      idx++
+      if (idx > text.length) {
+        idx = 1
+      }
+
+      setTimeout(writeText, speed)
+    }
+    speedEl.addEventListener('input', (e) => {
+      speed = 300 / e.target.value
+    })
+  </script>
+</body>
+
+</html>
